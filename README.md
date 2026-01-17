@@ -75,8 +75,8 @@ python AeRender.py -f "project.aep" -c "MainComp" -s 0 -e 100 -l
 # Specify Workers
 python AeRender.py -f "project.aep" -c "MainComp" -s 0 -e 100 -w 4
 
-# Full Options
-python AeRender.py -f "project.aep" -c "MainComp" -s 0 -e 100 -omt "PNG Sequence" -x png -w 4 -p -l
+# Full Options (use your own Output Module template name)
+python AeRender.py -f "project.aep" -c "MainComp" -s 0 -e 100 -omt "Your_Template_Name" -x png -w 4 -p -l
 ```
 
 > 📌 For multiple compositions, provide comma-separated comp names and space-separated frame ranges.
@@ -92,7 +92,7 @@ For more information on automated rendering, see the [Adobe After Effects User G
 | `-s` | Start frame (single or space-separated list) | Yes | - |
 | `-e` | End frame (single or space-separated list) | Yes | - |
 | `-o` | Output directory | No | results/COMP_NAME |
-| `-omt` | Output module template | No | PNG Sequence (Alpha) |
+| `-omt` | Output module template | No | YOUR_TEMPLATE |
 | `-rst` | Render settings template | No | Best Settings |
 | `-x` | Output file extension | No | png |
 | `-w` | Number of workers (0 = auto) | No | 0 |
@@ -104,6 +104,9 @@ For more information on automated rendering, see the [Adobe After Effects User G
 
 > 📌 Preview feature supports: **PNG, JPG, JPEG, BMP, TIFF**
 
+> ⚠️ **Important:** You must set `-omt` to your own Output Module template name from After Effects.
+> Check your templates in After Effects: `Edit > Templates > Output Module`
+
 ### Default Configuration
 
 You can customize default values directly in **`configs/defaults.py`** to avoid typing arguments repeatedly.
@@ -111,7 +114,7 @@ You can customize default values directly in **`configs/defaults.py`** to avoid 
 ```python
 # configs/defaults.py
 DEFAULT_RS_TEMPLATE = 'Best Settings'
-DEFAULT_OM_TEMPLATE = '* PNG Sequence (Alpha)'
+DEFAULT_OM_TEMPLATE = 'YOUR_TEMPLATE'  # Set your After Effects Output Module template name
 DEFAULT_FILE_EXTENSION = 'png'
 DEFAULT_SYSTEM_USAGE = 0.70
 # ... and more
