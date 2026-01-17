@@ -1,4 +1,4 @@
-# AeRender
+# AeRender.py
 
 A simple python cli for automating **Adobe After Effects** rendering process with multicore acceleration.
 
